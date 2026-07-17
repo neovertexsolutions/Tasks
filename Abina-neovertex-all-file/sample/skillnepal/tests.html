@@ -1,0 +1,1378 @@
+# SkillNepal Mock Test Page Implementation
+
+Here's a complete implementation of the tests.html page with all requested features:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test | SkillNepal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --glass: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.18);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        .dark-mode {
+            --light: #121212;
+            --dark: #f8f9fa;
+            --glass: rgba(0, 0, 0, 0.3);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            color: var(--dark);
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f0c29, #302b63);
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 8px solid #fff;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-logo {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            border-bottom: var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #d91a6d;
+            transform: translateY(-3px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 5% 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        /* Test Container */
+        .test-container {
+            padding: 0 5% 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        @media (max-width: 992px) {
+            .test-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Test Content */
+        .test-content {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Test Sidebar */
+        .test-sidebar {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        /* Timer */
+        .timer-container {
+            background: rgba(67, 97, 238, 0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .timer {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timer-label {
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        .timer-warning {
+            color: var(--warning);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Question Navigation */
+        .question-nav {
+            margin-bottom: 1.5rem;
+        }
+
+        .question-nav h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-btn.answered {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-btn.current {
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(67, 97, 238, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Question */
+        .question-container {
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .options-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .option-item {
+            margin-bottom: 1rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(67, 97, 238, 0.05);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+
+        .option-label:hover {
+            background: rgba(67, 97, 238, 0.1);
+        }
+
+        .option-input {
+            display: none;
+        }
+
+        .option-input:checked + .option-label {
+            background: rgba(67, 97, 238, 0.1);
+            border-color: var(--primary);
+        }
+
+        .option-text {
+            flex: 1;
+        }
+
+        .question-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        /* Explanation */
+        .explanation {
+            background: rgba(75, 192, 192, 0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 3px solid #4bc0c0;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .explanation-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #4bc0c0;
+        }
+
+        /* Result Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+
+        .score-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0%, #f0f0f0 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .score-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .score-text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .score-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .score-detail {
+            background: rgba(67, 97, 238, 0.05);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .detail-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Certificate Unlock */
+        .certificate-unlock {
+            background: rgba(75, 192, 192, 0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .certificate-unlock i {
+            font-size: 2rem;
+            color: #4bc0c0;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-unlock p {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: var(--border-glass);
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--glass);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .test-sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .nav-buttons {
+                grid-template-columns: repeat(10, 1fr);
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-buttons {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .score-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-logo">SkillNepal</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>SkillNepal</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="resume.html">Resume Builder</a></li>
+                <li><a href="tests.html" class="active">Mock Tests</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header animate-on-scroll">
+        <h1>Mock Test Challenge</h1>
+        <p>Test your knowledge with this timed assessment. Score 60% or higher to unlock your certificate!</p>
+    </section>
+
+    <!-- Test Container -->
+    <div class="test-container">
+        <!-- Test Content -->
+        <div class="test-content animate-on-scroll">
+            <div id="testIntro">
+                <h2>Test Instructions</h2>
+                <p>This test consists of 15 multiple-choice questions. You have 20 minutes to complete it.</p>
+                <ul style="margin: 1rem 0 2rem 1.5rem;">
+                    <li>Read each question carefully</li>
+                    <li>Select the best answer</li>
+                    <li>You can navigate between questions</li>
+                    <li>Timer will auto-submit when time expires</li>
+                </ul>
+                <button class="btn btn-primary" id="startTestBtn">Start Test</button>
+            </div>
+            
+            <div id="testQuestions" style="display: none;">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <!-- Test Sidebar -->
+        <div class="test-sidebar animate-on-scroll">
+            <div class="timer-container">
+                <div class="timer" id="timer">20:00</div>
+                <div class="timer-label">Time Remaining</div>
+            </div>
+            
+            <div class="question-nav">
+                <h3>Question Navigation</h3>
+                <div class="nav-buttons" id="navButtons">
+                    <!-- Navigation buttons will be added here -->
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span>Progress</span>
+                    <span id="progressText">0/15 answered</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" id="submitTestBtn" style="width: 100%; margin-top: 1rem;">
+                <i class="fas fa-paper-plane"></i> Submit Test
+            </button>
+            
+            <div class="certificate-unlock" id="certificateUnlock">
+                <i class="fas fa-certificate"></i>
+                <p>Congratulations! You've unlocked the certificate.</p>
+                <a href="certificates.html" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-download"></i> Download Certificate
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Result Modal -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Test Results</h2>
+                <p>Here's how you performed on the test</p>
+            </div>
+            <div class="modal-body">
+                <div class="score-container">
+                    <div class="score-circle" id="scoreCircle">
+                        <div class="score-value" id="scoreValue">0%</div>
+                    </div>
+                    <div class="score-text" id="scoreText">You scored 0 out of 15</div>
+                </div>
+                
+                <div class="score-details">
+                    <div class="score-detail">
+                        <div class="detail-value" id="correctAnswers">0</div>
+                        <div class="detail-label">Correct</div>
+                    </div>
+                    <div class="score-detail">
+                        <div class="detail-value" id="wrongAnswers">0</div>
+                        <div class="detail-label">Incorrect</div>
+                    </div>
+                    <div class="score-detail">
+                        <div class="detail-value" id="unanswered">15</div>
+                        <div class="detail-label">Unanswered</div>
+                    </div>
+                </div>
+                
+                <div id="passMessage" style="text-align: center; margin-bottom: 1.5rem; display: none;">
+                    <p style="color: #4bc0c0; font-weight: 600;">
+                        <i class="fas fa-check-circle"></i> Congratulations! You've passed the test.
+                    </p>
+                    <p>Your certificate is now available for download.</p>
+                </div>
+                
+                <div id="failMessage" style="text-align: center; margin-bottom: 1.5rem; display: none;">
+                    <p style="color: var(--danger); font-weight: 600;">
+                        <i class="fas fa-exclamation-circle"></i> You didn't pass this time.
+                    </p>
+                    <p>You can retake the test once more to try again.</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="reviewTestBtn">
+                    <i class="fas fa-search"></i> Review Answers
+                </button>
+                <button class="btn btn-primary" id="closeModalBtn">
+                    <i class="fas fa-check"></i> Continue
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SkillNepal</h3>
+                <p>Empowering Nepali students and professionals with education and career development resources.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="notes.html">Study Notes</a></li>
+                    <li><a href="resume.html">Resume Builder</a></li>
+                    <li><a href="tests.html">Mock Tests</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="jobs.html">Job Board</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="ai-guide.html">AI Career Guide</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Putalisadak, Kathmandu</li>
+                    <li><i class="fas fa-phone"></i> +977 1-1234567</li>
+                    <li><i class="fas fa-envelope"></i> info@skillnepal.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 SkillNepal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script>
+        // Sample Questions (would normally be in a separate questions.js file)
+        const questions = [
+            {
+                question: "What is the time complexity of binary search?",
+                options: ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+                answer: 1,
+                explanation: "Binary search has a time complexity of O(log n) because it halves the search space with each comparison."
+            },
+            {
+                question: "HTML stands for?",
+                options: ["Hyper Text Markup Language", "Hyper Test Markup Language", "HighText Machine Language", "None"],
+                answer: 0,
+                explanation: "HTML stands for Hyper Text Markup Language, which is the standard markup language for creating web pages."
+            },
+            {
+                question: "Which of these is not a JavaScript framework?",
+                options: ["React", "Angular", "Django", "Vue"],
+                answer: 2,
+                explanation: "Django is a Python web framework, not a JavaScript framework."
+            },
+            {
+                question: "What does CSS stand for?",
+                options: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+                answer: 0,
+                explanation: "CSS stands for Cascading Style Sheets, which is used to style HTML elements."
+            },
+            {
+                question: "Which data structure uses FIFO (First In First Out) principle?",
+                options: ["Stack", "Queue", "Array", "Tree"],
+                answer: 1,
+                explanation: "Queue uses the FIFO principle where the first element added is the first one to be removed."
+            },
+            {
+                question: "What is the correct way to declare a JavaScript variable?",
+                options: ["variable name;", "var name;", "v name;", "declare name;"],
+                answer: 1,
+                explanation: "The correct way to declare a variable in JavaScript is using the 'var', 'let', or 'const' keyword."
+            },
+            {
+                question: "Which of these is not a programming language?",
+                options: ["Python", "Java", "HTML", "C++"],
+                answer: 2,
+                explanation: "HTML is a markup language, not a programming language."
+            },
+            {
+                question: "What does API stand for?",
+                options: ["Application Programming Interface", "Automated Programming Interface", "Advanced Programming Interface", "Application Process Interface"],
+                answer: 0,
+                explanation: "API stands for Application Programming Interface, which allows different software applications to communicate with each other."
+            },
+            {
+                question: "Which protocol is used to transfer web pages on the internet?",
+                options: ["FTP", "HTTP", "SMTP", "TCP"],
+                answer: 1,
+                explanation: "HTTP (Hypertext Transfer Protocol) is used to transfer web pages on the internet."
+            },
+            {
+                question: "What is the default port number for HTTP?",
+                options: ["80", "443", "21", "25"],
+                answer: 0,
+                explanation: "The default port number for HTTP is 80, while HTTPS uses port 443."
+            },
+            {
+                question: "Which of these is a NoSQL database?",
+                options: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
+                answer: 2,
+                explanation: "MongoDB is a NoSQL database, while the others are relational databases."
+            },
+            {
+                question: "What is the correct syntax for referring to an external JavaScript file?",
+                options: [
+                    '<script href="script.js">',
+                    '<script name="script.js">',
+                    '<script src="script.js">',
+                    '<script file="script.js">'
+                ],
+                answer: 2,
+                explanation: "The correct syntax is <script src='script.js'> to reference an external JavaScript file."
+            },
+            {
+                question: "Which method is used to add an element to the end of an array in JavaScript?",
+                options: ["push()", "pop()", "shift()", "unshift()"],
+                answer: 0,
+                explanation: "The push() method adds one or more elements to the end of an array."
+            },
+            {
+                question: "What does SQL stand for?",
+                options: [
+                    "Structured Query Language",
+                    "Sequential Query Language",
+                    "Simple Query Language",
+                    "Standard Query Language"
+                ],
+                answer: 0,
+                explanation: "SQL stands for Structured Query Language, used to communicate with databases."
+            },
+            {
+                question: "Which of these is not a valid JavaScript data type?",
+                options: ["string", "boolean", "number", "character"],
+                answer: 3,
+                explanation: "JavaScript doesn't have a separate 'character' type - it's treated as a single-character string."
+            }
+        ];
+
+        // DOM Elements
+        const loader = document.getElementById('loader');
+        const testIntro = document.getElementById('testIntro');
+        const testQuestions = document.getElementById('testQuestions');
+        const startTestBtn = document.getElementById('startTestBtn');
+        const timer = document.getElementById('timer');
+        const navButtons = document.getElementById('navButtons');
+        const progressText = document.getElementById('progressText');
+        const progressFill = document.getElementById('progressFill');
+        const submitTestBtn = document.getElementById('submitTestBtn');
+        const certificateUnlock = document.getElementById('certificateUnlock');
+        const resultModal = document.getElementById('resultModal');
+        const scoreCircle = document.getElementById('scoreCircle');
+        const scoreValue = document.getElementById('scoreValue');
+        const scoreText = document.getElementById('scoreText');
+        const correctAnswers = document.getElementById('correctAnswers');
+        const wrongAnswers = document.getElementById('wrongAnswers');
+        const unanswered = document.getElementById('unanswered');
+        const passMessage = document.getElementById('passMessage');
+        const failMessage = document.getElementById('failMessage');
+        const reviewTestBtn = document.getElementById('reviewTestBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Test Variables
+        let testStarted = false;
+        let timeLeft = 20 * 60; // 20 minutes in seconds
+        let timerInterval;
+        let currentQuestion = 0;
+        let userAnswers = Array(questions.length).fill(null);
+        let testSubmitted = false;
+        let testScore = 0;
+        let retakeAvailable = true;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loader after page loads
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1500);
+            
+            // Check if user has already passed the test
+            if (localStorage.getItem('testPassed') === 'true')
+                        // Check if user has already passed the test
+            if (localStorage.getItem('testPassed') === 'true') {
+                certificateUnlock.style.display = 'block';
+            }
+            
+            // Initialize navigation buttons
+            createNavButtons();
+            
+            // Initialize theme from localStorage
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            // Scroll animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+        
+        // Create navigation buttons for questions
+        function createNavButtons() {
+            navButtons.innerHTML = '';
+            questions.forEach((_, index) => {
+                const button = document.createElement('button');
+                button.className = 'nav-btn';
+                button.textContent = index + 1;
+                button.addEventListener('click', () => navigateToQuestion(index));
+                navButtons.appendChild(button);
+            });
+        }
+        
+        // Start the test
+        startTestBtn.addEventListener('click', function() {
+            testStarted = true;
+            testIntro.style.display = 'none';
+            testQuestions.style.display = 'block';
+            
+            // Start timer
+            timerInterval = setInterval(updateTimer, 1000);
+            
+            // Load first question
+            loadQuestion(currentQuestion);
+        });
+        
+        // Update timer display
+        function updateTimer() {
+            timeLeft--;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                submitTest();
+                return;
+            }
+            
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Add warning class when less than 5 minutes left
+            if (timeLeft <= 300 && !timer.classList.contains('timer-warning')) {
+                timer.classList.add('timer-warning');
+            }
+        }
+        
+        // Load a question
+        function loadQuestion(index) {
+            if (index < 0 || index >= questions.length) return;
+            
+            currentQuestion = index;
+            
+            // Update active nav button
+            const buttons = navButtons.querySelectorAll('.nav-btn');
+            buttons.forEach((btn, i) => {
+                btn.classList.remove('current');
+                if (userAnswers[i] !== null) btn.classList.add('answered');
+            });
+            buttons[index].classList.add('current');
+            
+            // Create question HTML
+            const question = questions[index];
+            testQuestions.innerHTML = `
+                <div class="question-container active">
+                    <div class="question-number">Question ${index + 1} of ${questions.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <ul class="options-list">
+                        ${question.options.map((option, i) => `
+                            <li class="option-item">
+                                <input type="radio" name="question-${index}" id="option-${index}-${i}" value="${i}" 
+                                    ${userAnswers[index] === i ? 'checked' : ''} class="option-input">
+                                <label for="option-${index}-${i}" class="option-label">
+                                    <span class="option-letter">${String.fromCharCode(65 + i)}</span>
+                                    <span class="option-text">${option}</span>
+                                </label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="question-actions">
+                        <button class="btn btn-secondary" id="prevBtn" ${index === 0 ? 'disabled' : ''}>
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn" ${index === questions.length - 1 ? 'disabled' : ''}>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    ${userAnswers[index] !== null && testSubmitted ? `
+                        <div class="explanation">
+                            <div class="explanation-title">Explanation</div>
+                            <p>${question.explanation}</p>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+            
+            // Add event listeners for options
+            question.options.forEach((_, i) => {
+                const option = document.getElementById(`option-${index}-${i}`);
+                if (option) {
+                    option.addEventListener('change', () => {
+                        userAnswers[index] = i;
+                        updateProgress();
+                        buttons[index].classList.add('answered');
+                    });
+                }
+            });
+            
+            // Add event listeners for navigation buttons
+            document.getElementById('prevBtn')?.addEventListener('click', () => navigateToQuestion(index - 1));
+            document.getElementById('nextBtn')?.addEventListener('click', () => navigateToQuestion(index + 1));
+        }
+        
+        // Navigate to a specific question
+        function navigateToQuestion(index) {
+            if (index < 0 || index >= questions.length) return;
+            loadQuestion(index);
+        }
+        
+        // Update progress bar
+        function updateProgress() {
+            const answered = userAnswers.filter(answer => answer !== null).length;
+            const progress = (answered / questions.length) * 100;
+            
+            progressText.textContent = `${answered}/${questions.length} answered`;
+            progressFill.style.width = `${progress}%`;
+        }
+        
+        // Submit the test
+        submitTestBtn.addEventListener('click', function() {
+            if (confirm('Are you sure you want to submit your test?')) {
+                submitTest();
+            }
+        });
+        
+        function submitTest() {
+            if (testSubmitted) return;
+            
+            testSubmitted = true;
+            clearInterval(timerInterval);
+            
+            // Calculate score
+            let correct = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === questions[index].answer) {
+                    correct++;
+                }
+            });
+            
+            testScore = Math.round((correct / questions.length) * 100);
+            
+            // Show results
+            showResults(correct);
+        }
+        
+        // Show test results
+        function showResults(correct) {
+            const wrong = userAnswers.filter((answer, index) => 
+                answer !== null && answer !== questions[index].answer).length;
+            const notAnswered = userAnswers.filter(answer => answer === null).length;
+            
+            // Update result modal
+            scoreValue.textContent = `${testScore}%`;
+            scoreText.textContent = `You scored ${correct} out of ${questions.length}`;
+            correctAnswers.textContent = correct;
+            wrongAnswers.textContent = wrong;
+            unanswered.textContent = notAnswered;
+            
+            // Animate score circle
+            const conicGradient = `conic-gradient(var(--primary) ${testScore}%, #f0f0f0 ${testScore}%)`;
+            scoreCircle.style.background = conicGradient;
+            
+            // Show pass/fail message
+            if (testScore >= 60) {
+                passMessage.style.display = 'block';
+                failMessage.style.display = 'none';
+                
+                // Unlock certificate if not already unlocked
+                if (localStorage.getItem('testPassed') !== 'true') {
+                    localStorage.setItem('testPassed', 'true');
+                    certificateUnlock.style.display = 'block';
+                }
+            } else {
+                passMessage.style.display = 'none';
+                failMessage.style.display = 'block';
+            }
+            
+            // Show modal
+            resultModal.classList.add('active');
+        }
+        
+        // Review test answers
+        reviewTestBtn.addEventListener('click', function() {
+            resultModal.classList.remove('active');
+            loadQuestion(0);
+        });
+        
+        // Close modal
+        closeModalBtn.addEventListener('click', function() {
+            resultModal.classList.remove('active');
+        });
+        
+        // Theme toggle
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+        
+        // Mobile menu toggle
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

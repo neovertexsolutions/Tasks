@@ -1,0 +1,6 @@
+@StudentManagementApiDB_HostAddress = http://localhost:5008
+
+GET {{StudentManagementApiDB_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

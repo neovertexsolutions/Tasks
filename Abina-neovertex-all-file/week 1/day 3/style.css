@@ -1,0 +1,12 @@
+*{
+    background-color: rgb(230, 228, 176);
+    text-align: center;
+}
+button{
+    color:rgb(62, 15, 15);
+    background-color: blue;
+    padding: 10px 300px ;
+}
+h1{
+    color: darkolivegreen;
+}

@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | SkillNepal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --success: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --glass: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.18);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        .dark-mode {
+            --light: #121212;
+            --dark: #f8f9fa;
+            --glass: rgba(0, 0, 0, 0.3);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            color: var(--dark);
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f0c29, #302b63);
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 8px solid #fff;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-logo {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            border-bottom: var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 5rem 5% 3rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        /* Search and Filter */
+        .courses-controls {
+            padding: 0 5% 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .controls-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.9rem 1.5rem 0.9rem 3rem;
+            border-radius: 50px;
+            border: 2px solid rgba(67, 97, 238, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            opacity: 0.7;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Course Grid */
+        .courses-grid {
+            padding: 0 5% 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(31, 38, 135, 0.2);
+        }
+
+        .course-image {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.1);
+        }
+
+        .category-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-description {
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .course-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .course-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .course-actions .btn {
+            flex: 1;
+            padding: 0.7rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Recommendations */
+        .recommendations {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            margin: 1.5rem 0;
+        }
+
+        .video-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .video-info p {
+            color: var(--dark);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .recommended-courses h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .recommended-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .rec-course {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            background: rgba(67, 97, 238, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .rec-course:hover {
+            background: rgba(67, 97, 238, 0.1);
+            transform: translateX(5px);
+        }
+
+        .rec-course img {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .rec-course h5 {
+            font-size: 0.95rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .rec-course p {
+            font-size: 0.8rem;
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        /* Chatbot */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            background: var(--secondary);
+        }
+
+        .chatbot-toggle i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 8rem;
+            right: 2rem;
+            width: 350px;
+            height: 450px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            z-index: 99;
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .chatbot-container.active {
+            transform: scale(1);
+        }
+
+        .chatbot-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.bot {
+            background: rgba(67, 97, 238, 0.1);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--dark);
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chatbot-input button:hover {
+            background: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: var(--border-glass);
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 8rem;
+            width: 50px;
+            height: 50px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .recommended-courses {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--glass);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .controls-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+            }
+            
+            .filter-container {
+                justify-content: center;
+            }
+            
+            .chatbot-container {
+                width: 300px;
+                height: 400px;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-actions {
+                flex-direction: column;
+            }
+            
+            .course-card {
+                max-width: 100%;
+            }
+            
+            .chatbot-container {
+                width: 90%;
+                right: 5%;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-logo">SkillNepal</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>SkillNepal</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="resume.html">Resume Builder</a></li>
+                <li><a href="tests.html">Mock Tests</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header animate-on-scroll">
+        <h1>Explore Our Courses</h1>
+        <p>Discover hundreds of courses designed to help you master new skills and advance your career. Filter by category or search for specific topics.</p>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="courses-controls">
+        <div class="controls-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search courses...">
+            </div>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All Courses</button>
+                <button class="filter-btn" data-category="web">Web Development</button>
+                <button class="filter-btn" data-category="ai">AI & Data Science</button>
+                <button class="filter-btn" data-category="design">Design</button>
+                <button class="filter-btn" data-category="business">Business</button>
+            </div>
+        </div>
+        
+        <div class="results-info">
+            <p id="resultsCount">Showing all 12 courses</p>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="courses-grid" id="coursesContainer">
+        <!-- Courses will be dynamically generated -->
+    </section>
+
+    <!-- Recommendations -->
+    <section class="recommendations">
+        <div class="section-header animate-on-scroll">
+            <h2>You May Also Like</h2>
+            <p>Based on your interests and previous learning</p>
+        </div>
+        
+        <div class="courses-grid" id="recommendationsContainer">
+            <!-- Recommended courses will be dynamically generated -->
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Course Title</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="video-content">
+                    <div class="video-container">
+                        <iframe id="courseVideo" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4>About This Course</h4>
+                        <p id="courseDescription">Course description will appear here...</p>
+                    </div>
+                </div>
+                <div class="recommended-courses">
+                    <h4>Next Courses to Explore</h4>
+                    <div class="recommended-list" id="modalRecommendations">
+                        <!-- Recommended courses for modal -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SkillNepal</h3>
+                <p>Empowering Nepali students and professionals with education and career development resources.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="notes.html">Study Notes</a></li>
+                    <li><a href="resume.html">Resume Builder</a></li>
+                    <li><a href="tests.html">Mock Tests</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="jobs.html">Job Board</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="ai-guide.html">AI Career Guide</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Putalisadak, Kathmandu</li>
+                    <li><i class="fas fa-phone"></i> +977 1-1234567</li>
+                    <li><i class="fas fa-envelope"></i> info@skillnepal.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 SkillNepal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Chatbot Toggle -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3>Course Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot">
+                Hello! I'm your AI Course Assistant. How can I help you find the right course today?
+            </div>
+        </div>
+        
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Ask about courses or learning paths...">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // Mock course data
+        const courses = [
+            {
+                id: 1,
+                title: "Web Development Bootcamp",
+                category: "web",
+                instructor: "Rajesh Thapa",
+                duration: "12 hours",
+                description: "Master HTML, CSS, JavaScript and modern frameworks to build responsive websites and web applications.",
+                tags: ["HTML", "CSS", "JavaScript", "React"],
+                thumbnail: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "pQN-pnXPaVg",
+                notes: ["web-dev-fundamentals.pdf", "javascript-basics.pdf"]
+            },
+            {
+                id: 2,
+                title: "Data Science Fundamentals",
+                category: "ai",
+                instructor: "Sita Sharma",
+                duration: "15 hours",
+                description: "Learn Python for data analysis, visualization, and machine learning algorithms.",
+                tags: ["Python", "Machine Learning", "Data Analysis"],
+                thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "ua-CiDNNj30",
+                notes: ["data-science-basics.pdf", "python-for-ds.pdf"]
+            },
+            {
+                id: 3,
+                title: "UI/UX Design Masterclass",
+                category: "design",
+                instructor: "Anita Gurung",
+                duration: "10 hours",
+                description: "Design beautiful user interfaces and create intuitive user experiences with modern design tools.",
+                tags: ["Figma", "UI Design", "User Research"],
+                thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "c9Wg6Cb_YlU",
+                notes: ["ui-design-principles.pdf", "figma-guide.pdf"]
+            },
+            {
+                id: 4,
+                title: "Digital Marketing Strategy",
+                category: "business",
+                instructor: "Bikram Singh",
+                duration: "8 hours",
+                description: "Learn to create effective digital marketing campaigns across social media, SEO, and email.",
+                tags: ["Marketing", "SEO", "Social Media"],
+                thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "7vQznLKEfBs",
+                notes: ["digital-marketing-101.pdf", "seo-best-practices.pdf"]
+            },
+            {
+                id: 5,
+                title: "Advanced JavaScript Patterns",
+                category: "web",
+                instructor: "Suresh Rai",
+                duration: "6 hours",
+                description: "Dive deep into advanced JavaScript concepts, design patterns, and performance optimization.",
+                tags: ["JavaScript", "ES6", "Design Patterns"],
+                thumbnail: "https://images.unsplash.com/photo-1579403124614-197f69d8187b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "Mus_vwhTCq0",
+                notes: ["js-advanced.pdf", "design-patterns.pdf"]
+            },
+            {
+                id: 6,
+                title: "Machine Learning Essentials",
+                category: "ai",
+                instructor: "Deepak Karki",
+                duration: "18 hours",
+                description: "Build and deploy machine learning models using Python and popular ML libraries.",
+                tags: ["Python", "ML", "TensorFlow"],
+                thumbnail: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "KNAWp2S3w94",
+                notes: ["ml-fundamentals.pdf", "tensorflow-guide.pdf"]
+            },
+            {
+                id: 7,
+                title: "Mobile App Development",
+                category: "web",
+                instructor: "Prakash Shrestha",
+                duration: "14 hours",
+                description: "Create cross-platform mobile applications using React Native and Flutter.",
+                tags: ["React Native", "Flutter", "Mobile"],
+                thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "0-S5a0eXPoc",
+                notes: ["react-native-guide.pdf", "flutter-intro.pdf"]
+            },
+            {
+                id: 8,
+                title: "Business Analytics",
+                category: "business",
+                instructor: "Nisha Tamang",
+                duration: "9 hours",
+                description: "Use data analytics to make informed business decisions and drive growth.",
+                tags: ["Analytics", "Excel", "Business Intelligence"],
+                thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "yZvFH7B6gKI",
+                notes: ["business-analytics.pdf", "excel-for-analytics.pdf"]
+            },
+            {
+                id: 9,
+                title: "Python for Beginners",
+                category: "ai",
+                instructor: "Ramesh Basnet",
+                duration: "10 hours",
+                description: "Start your programming journey with Python - the most versatile programming language.",
+                tags: ["Python", "Programming", "Beginners"],
+                thumbnail: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "rfscVS0vtbw",
+                notes: ["python-basics.pdf", "python-projects.pdf"]
+            },
+            {
+                id: 10,
+                title: "Graphic Design Fundamentals",
+                category: "design",
+                instructor: "Sunita Rai",
+                duration: "7 hours",
+                description: "Learn design principles, typography, color theory, and Adobe Creative Suite tools.",
+                tags: ["Photoshop", "Illustrator", "Typography"],
+                thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "sTi5SNgxE3U",
+                notes: ["design-principles.pdf", "adobe-guide.pdf"]
+            },
+            {
+                id: 11,
+                title: "Backend Development with Node.js",
+                category: "web",
+                instructor: "Amit Joshi",
+                duration: "11 hours",
+                description: "Build scalable backend services and APIs using Node.js, Express, and MongoDB.",
+                tags: ["Node.js", "Express", "MongoDB"],
+                thumbnail: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "Oe421EPjeBE",
+                notes: ["nodejs-guide.pdf", "express-api.pdf"]
+            },
+            {
+                id: 12,
+                title: "Entrepreneurship 101",
+                category: "business",
+                instructor: "Binod Chaudhary",
+                duration: "8 hours",
+                description: "Learn how to start and grow your own business from idea to execution.",
+                tags: ["Startup", "Business Plan", "Funding"],
+                thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "U6n2NcJ7rLc",
+                notes: ["entrepreneurship-guide.pdf", "business-plan-template.pdf"]
+            }
+        ];
+
+        // Mock recommended courses
+        const recommendations = [
+            {
+                id: 13,
+                title: "React JS Mastery",
+                category: "web",
+                instructor: "Suman Thapa",
+                duration: "10 hours",
+                description: "Master React JS with hooks, context, and advanced state management techniques.",
+                tags: ["React", "Hooks", "Redux"],
+                thumbnail: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "DLX62G4lc44",
+                notes: ["react-guide.pdf", "redux-tutorial.pdf"]
+            },
+            {
+                id: 14,
+                title: "Advanced CSS Techniques",
+                category: "web",
+                instructor: "Priya Shrestha",
+                duration: "6 hours",
+                description: "Learn advanced CSS including flexbox, grid, animations and responsive design patterns.",
+                tags: ["CSS", "Flexbox", "Grid"],
+                thumbnail: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "zHUpx90NerM",
+                notes: ["css-advanced.pdf", "responsive-design.pdf"]
+            },
+            {
+                id: 15,
+                title: "Cloud Computing Fundamentals",
+                category: "ai",
+                instructor: "Rajendra Pandey",
+                duration: "9 hours",
+                description: "Introduction to cloud computing concepts and deployment using AWS and Azure.",
+                tags: ["AWS", "Azure", "Cloud"],
+                thumbnail: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                videoId: "M988_fsOSWo",
+                notes: ["cloud-fundamentals.pdf", "aws-basics.pdf"]
+            }
+        ];
+
+        // DOM Elements
+        const coursesContainer = document.getElementById('coursesContainer');
+        const recommendationsContainer = document.getElementById('recommendationsContainer');
+        const resultsCount = document.getElementById('resultsCount');
+        const searchInput = document.getElementById('searchInput');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const videoModal = document.getElementById('videoModal');
+        const closeModal = document.getElementById('closeModal');
+        const courseVideo = document.getElementById('courseVideo');
+        const modalTitle = document.getElementById('modalTitle');
+        const courseDescription = document.getElementById('courseDescription');
+        const modalRecommendations = document.getElementById('modalRecommendations');
+
+        // Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCourses(courses);
+            renderRecommendations(recommendations);
+            updateResultsCount(courses.length);
+            
+            // Initialize event listeners
+            initEventListeners();
+            
+            // Scroll animations
+            initScrollAnimations();
+        });
+
+        // Render courses to the page
+        function renderCourses(coursesArray) {
+            coursesContainer.innerHTML = '';
+            
+            coursesArray.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card animate-on-scroll';
+                courseCard.innerHTML = `
+                    <div class="course-image">
+                        <img src="${course.thumbnail}" alt="${course.title}">
+                        <div class="category-tag">${course.category.toUpperCase()}</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>${course.title}</h3>
+                        <div class="course-meta">
+                            <span><i class="fas fa-user"></i> ${course.instructor}</span>
+                            <span><i class="fas fa-clock"></i> ${course.duration}</span>
+                        </div>
+                        <p class="course-description">${course.description}</p>
+                        <div class="course-tags">
+                            ${course.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-primary watch-btn" data-id="${course.id}">
+                                <i class="fas fa-play"></i> Watch Now
+                            </button>
+                            <button class="btn btn-secondary download-btn" data-id="${course.id}">
+                                <i class="fas fa-download"></i> Notes
+                            </button>
+                        </div>
+                    </div>
+                `;
+                coursesContainer.appendChild(courseCard);
+            });
+            
+            // Initialize scroll animations for new elements
+            initScrollAnimations();
+        }
+
+        // Render recommended courses
+        function renderRecommendations(recArray) {
+            recommendationsContainer.innerHTML = '';
+            
+            recArray.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card animate-on-scroll';
+                courseCard.innerHTML = `
+                    <div class="course-image">
+                        <img src="${course.thumbnail}" alt="${course.title}">
+                        <div class="category-tag">${course.category.toUpperCase()}</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>${course.title}</h3>
+                        <div class="course-meta">
+                            <span><i class="fas fa-user"></i> ${course.instructor}</span>
+                            <span><i class="fas fa-clock"></i> ${course.duration}</span>
+                        </div>
+                        <div class="course-actions">
+                            <button class="btn btn-primary watch-btn" data-id="${course.id}">
+                                <i class="fas fa-play"></i> Watch Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+                recommendationsContainer.appendChild(courseCard);
+            });
+            
+            // Initialize scroll animations for new elements
+            initScrollAnimations();
+        }
+
+        // Filter courses by category
+        function filterCourses(category) {
+            if (category === 'all') {
+                renderCourses(courses);
+                updateResultsCount(courses.length);
+                return;
+            }
+            
+            const filtered = courses.filter(course => course.category === category);
+            renderCourses(filtered);
+            updateResultsCount(filtered.length);
+        }
+
+        // Search courses by title
+        function searchCourses(query) {
+            const filtered = courses.filter(course => 
+                course.title.toLowerCase().includes(query.toLowerCase()) ||
+                course.description.toLowerCase().includes(query.toLowerCase()) ||
+                course.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+            );
+            
+            renderCourses(filtered);
+            updateResultsCount(filtered.length);
+        }
+
+        // Update results count text
+        function updateResultsCount(count) {
+            resultsCount.textContent = `Showing ${count} courses`;
+        }
+
+        // Open video modal
+        function openVideoModal(courseId) {
+            const course = courses.find(c => c.id === courseId) || 
+                         recommendations.find(c => c.id === courseId);
+            
+            if (!course) return;
+            
+            // Update modal content
+            modalTitle.textContent = course.title;
+            courseDescription.textContent = course.description;
+            courseVideo.src = `https://www.youtube.com/embed/${course.videoId}`;
+            
+            // Add to recently viewed in localStorage
+            saveToRecentlyViewed(course);
+            
+            // Render modal recommendations
+            renderModalRecommendations();
+            
+            // Show modal
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close video modal
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            courseVideo.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Render recommendations in modal
+        function renderModalRecommendations() {
+            modalRecommendations.innerHTML = '';
+            
+            // Get 3 random courses excluding the current one
+            const shuffled = [...courses].sort(() => 0.5 - Math.random());
+            let selected = shuffled.slice(0, 3);
+            
+            selected.forEach(course => {
+                const recItem = document.createElement('div');
+                recItem.className = 'rec-course';
+                recItem.innerHTML = `
+                    <img src="${course.thumbnail}" alt="${course.title}">
+                    <div>
+                        <h5>${course.title}</h5>
+                        <p>${course.instructor} • ${course.duration}</p>
+                    </div>
+                `;
+                recItem.addEventListener('click', () => {
+                    openVideoModal(course.id);
+                });
+                modalRecommendations.appendChild(recItem);
+            });
+        }
+
+        // Save to recently viewed in localStorage
+        function saveToRecentlyViewed(course) {
+            let viewed = JSON.parse(localStorage.getItem('recentlyViewed') || []);
+            
+            // Remove if already exists
+            viewed = viewed.filter(c => c.id !== course.id);
+            
+            // Add to beginning
+            viewed.unshift(course);
+            
+            // Keep only last 5
+            if (viewed.length > 5) viewed.pop();
+            
+            localStorage.setItem('recentlyViewed', JSON.stringify(viewed));
+        }
+
+        // Download notes
+        function downloadNotes(courseId) {
+            const course = courses.find(c => c.id === courseId);
+            if (!course || !course.notes) return;
+            
+            // For demo purposes, we'll just show an alert
+            // In a real app, this would download the PDFs
+            alert(`Downloading notes for: ${course.title}\n\nFiles: ${course.notes.join(', ')}`);
+        }
+
+        // Initialize event listeners
+        function initEventListeners() {
+            // Filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    // Filter courses
+                    filterCourses(button.dataset.category);
+                });
+            });
+            
+            // Search input
+            searchInput.addEventListener('input', () => {
+                searchCourses(searchInput.value);
+            });
+            
+            // Watch buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('watch-btn') || 
+                    e.target.closest('.watch-btn')) {
+                    const btn = e.target.closest('.watch-btn');
+                    openVideoModal(parseInt(btn.dataset.id));
+                }
+            });
+            
+            // Download buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('download-btn') || 
+                    e.target.closest('.download-btn')) {
+                    const btn = e.target.closest('.download-btn');
+                    downloadNotes(parseInt(btn.dataset.id));
+                }
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', closeVideoModal);
+            
+            // Close modal when clicking outside
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+            
+            // Chatbot functionality
+            initChatbot();
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Chatbot functionality
+        function initChatbot() {
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            const chatbotContainer = document.getElementById('chatbotContainer');
+            const chatbotClose = document.getElementById('chatbotClose');
+            const chatMessages = document.getElementById('chatMessages');
+            const userInput = document.getElementById('userInput');
+            const sendMessage = document.getElementById('sendMessage');
+            
+            chatbotToggle.addEventListener('click', () => {
+                chatbotContainer.classList.toggle('active');
+            });
+            
+            chatbotClose.addEventListener('click', () => {
+                chatbotContainer.classList.remove('active');
+            });
+            
+            function addMessage(message, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isUser ? 'user' : 'bot');
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function handleUserMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, true);
+                userInput.value = '';
+                
+                // Simulate AI response after a short delay
+                setTimeout(() => {
+                    let response = "I can help you find the perfect course! Could you tell me what skills you're interested in learning?";
+                    
+                    if (message.toLowerCase().includes('web') || message.toLowerCase().includes('frontend')) {
+                        response = "For web development, I recommend our 'Web Development Bootcamp' or 'React JS Mastery'. Both are great for beginners and cover modern technologies.";
+                    } else if (message.toLowerCase().includes('data') || message.toLowerCase().includes('ai')) {
+                        response = "For data science and AI, check out 'Data Science Fundamentals' and 'Machine Learning Essentials'. These courses provide hands-on experience with real-world projects.";
+                    } else if (message.toLowerCase().includes('design')) {
+                        response = "We have excellent design courses! 'UI/UX Design Masterclass' and 'Graphic Design Fundamentals' are our most popular. Both include practical exercises.";
+                    } else if (message.toLowerCase().includes('beginner')) {
+                        response = "For beginners, I suggest starting with 'Python for Beginners' or 'Web Development Bootcamp'. Both are designed for those new to programming.";
+                    } else if (message.toLowerCase().includes('business')) {
+                        response = "Our business courses include 'Digital Marketing Strategy', 'Business Analytics', and 'Entrepreneurship 101'. Which area are you most interested in?";
+                    } else if (message.toLowerCase().includes('thank')) {
+                        response = "You're welcome! Feel free to ask if you need more help finding courses.";
+                    }
+                    
+                    addMessage(response);
+                }, 1000);
+            }
+            
+            sendMessage.addEventListener('click', handleUserMessage);
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleUserMessage();
+                }
+            });
+        }
+
+        // Page loader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1500);
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    align-items: center;
+    gap: 20px;
+}
+.navbar img{
+    width: 60px;
+    height: auto;
+}
+.menu-btn{
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.navlinks{
+    display: flex;
+    gap: 20px;
+}
+.navlinks a{
+    color: white;
+    text-decoration:none;
+}
+.navbar:hover{
+    opacity: 0.8;
+    background: rgb(144, 28, 146);
+}
+.navbar button{
+    color: white;
+    background-color: rgba(64, 194, 255, 0.96);
+    padding: 5px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar button:hover{
+    opacity: 0.8;
+    background: pink;
+}
+
+.hero{
+    height: 86vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(64, 194, 255, 0.96) ;
+}
+.hero h1{
+    font-size: 3rem;
+}
+.hero p{
+    margin: 20px 0;
+}
+.hero button{
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color:lightgoldenrodyellow;
+}
+.services{
+        padding:  10px 20px;
+
+}
+.services h2{
+font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+.card{
+background-color: #023062;
+color: white;
+text-align: center;
+    border: 2px solid rgb(0, 183, 255);
+    border-radius: 10px;
+      height: 250px;
+    width:250px;
+display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.card h3{
+    
+    margin-bottom: 10px;
+}
+.card p{
+    text-align: center;
+    
+}
+.card img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+.contact{
+    padding: 50px 20px;
+}
+.contact h2{
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: dotted;
+}
+.contact-box{
+    text-align: center;
+}
+form{
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+input,textarea{
+    padding: 10px;
+    margin-bottom:15px;
+}
+form button{
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+footer{
+    padding: 40px;
+    background-color: rgba(64, 194, 255, 0.96);
+    text-align: center;
+}
+/*mobile responsive */
+@media (max-width:768px) {
+    header{
+        flex-direction: column;
+    }
+   .navbar{
+        display: flex;
+
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+        padding: 10px 20px;
+}
+.menu-btn{
+        display: block;
+    }
+     .navlinks{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: black;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+.hero h1{
+    font-size: 2rem;
+}
+.card-container{
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+ .card{
+        width: 90%;
+        max-width: 350px;
+    }
+}
+
+
+

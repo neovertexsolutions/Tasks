@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div  class="container">
+            <h1> Student Registration Form With Validation</h1>
+        <form id="register_form" >
+            <label> Full Name</label>
+            <input type="text" id="name">
+            <small id="nameError"></small>
+
+            <label>Email</label>
+            <input type="email" id="email">
+            <small id="emailError"></small>
+
+            <label>Phone Number</label>
+            <input type="text" id="phone">
+            <small id="phoneError"></small>
+
+            <label>Course</label>
+            <select id="course">
+                <option value="">Select Course</option>
+                <option value="CSIT">CSIT</option>
+                <option value="BCA">BCA</option>
+                <option value="BIT">BIT</option>
+            </select>
+            <small id="courseError"></small>
+
+
+            <label>Password</label>
+            <input type="password" id="password">
+            <small id="passwordError"></small>
+
+
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword">
+            <small id="confirmError"></small>
+
+
+            <button type="submit">Submit</button>
+
+            <p id="success"></p>
+        </form>
+
+
+
+    </div>
+ 
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37314.3 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day4studentwebapi", "day4studentwebapi\day4studentwebapi.csproj", "{745064C3-57A8-4323-88AB-79042EA81E15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{745064C3-57A8-4323-88AB-79042EA81E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745064C3-57A8-4323-88AB-79042EA81E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745064C3-57A8-4323-88AB-79042EA81E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745064C3-57A8-4323-88AB-79042EA81E15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {537EEFEB-C30D-487E-987B-6E2F81F84063}
+	EndGlobalSection
+EndGlobal

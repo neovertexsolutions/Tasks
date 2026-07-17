@@ -1,0 +1,7 @@
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\bin\Debug\1weekfinalpracticalproject.exe.config
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\bin\Debug\1weekfinalpracticalproject.exe
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\bin\Debug\1weekfinalpracticalproject.pdb
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\obj\Debug\1weekfinalpracticalproject.csproj.AssemblyReference.cache
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\obj\Debug\1weekfinalpracticalproject.csproj.CoreCompileInputs.cache
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\obj\Debug\1weekfinalpracticalproject.exe
+C:\Users\Krishna\source\repos\1weekfinalpracticalproject\1weekfinalpracticalproject\obj\Debug\1weekfinalpracticalproject.pdb

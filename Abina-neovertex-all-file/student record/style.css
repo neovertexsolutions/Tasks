@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background-color:#f0f0f0;
+}
+
+#box{
+    width:400px;
+    background:white;
+    color:black;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+#button{
+    gap: 20px;
+    
+}
+#signin{
+    color: black;
+    background-color: rgb(27, 86, 224);
+    border:10px black;
+    border-radius: 10px;
+    margin: *9;
+}
+#signup{
+    color: black;
+    background-color: rgb(244, 244, 245);
+    border: 50px rgb(27, 86, 224);
+    border-radius: 10px;
+}
