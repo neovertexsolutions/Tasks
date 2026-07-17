@@ -1,0 +1,6 @@
+@StudentDbApiCRUDRepository_HostAddress = http://localhost:5109
+
+GET {{StudentDbApiCRUDRepository_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

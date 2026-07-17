@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|c:\\users\\krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|solutionrelative:day4studentwebapi\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|c:\\users\\krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|solutionrelative:day4studentwebapi\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|c:\\users\\krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|solutionrelative:day4studentwebapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|c:\\users\\krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|solutionrelative:day4studentwebapi\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|c:\\users\\krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{745064C3-57A8-4323-88AB-79042EA81E15}|day4studentwebapi\\day4studentwebapi.csproj|solutionrelative:day4studentwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Program.cs",
+              "RelativeDocumentMoniker": "day4studentwebapi\\Program.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Program.cs",
+              "RelativeToolTip": "day4studentwebapi\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T13:01:09.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "day4studentwebapi\\Controllers\\StudentsController.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "day4studentwebapi\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAcwFwAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T12:41:22.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IStudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Interfaces\\IStudentService.cs",
+              "RelativeDocumentMoniker": "day4studentwebapi\\Interfaces\\IStudentService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Interfaces\\IStudentService.cs",
+              "RelativeToolTip": "day4studentwebapi\\Interfaces\\IStudentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T12:41:00.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "day4studentwebapi\\Services\\StudentService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Services\\StudentService.cs*",
+              "RelativeToolTip": "day4studentwebapi\\Services\\StudentService.cs*",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAcwIQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T12:40:25.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "day4studentwebapi\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\day4studentwebapi\\day4studentwebapi\\Models\\Student.cs",
+              "RelativeToolTip": "day4studentwebapi\\Models\\Student.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T12:40:37.021Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

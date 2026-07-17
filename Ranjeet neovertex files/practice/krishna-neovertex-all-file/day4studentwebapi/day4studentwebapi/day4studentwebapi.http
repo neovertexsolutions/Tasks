@@ -1,0 +1,6 @@
+@day4studentwebapi_HostAddress = http://localhost:5151
+
+GET {{day4studentwebapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

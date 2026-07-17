@@ -1,0 +1,51 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+
+
+.container{
+     width:600px;
+    margin:50px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+}
+ h1{
+    color: rgb(98, 140, 224);
+    text-align: center;
+}
+label{
+    display:block;
+    margin-top:15px;
+} 
+input, select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+}
+
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:20px;
+    background:blue;
+    color:white;
+    border:none;
+    cursor:pointer;
+    text-align: center;
+}
+
+
+small{
+    color:red;
+}
+
+
+#success{
+    color:green;
+    text-align:center;
+    font-weight:bold;
+}

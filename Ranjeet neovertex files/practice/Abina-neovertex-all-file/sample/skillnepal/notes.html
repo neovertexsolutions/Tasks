@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes | SkillNepal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --success: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --glass: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.18);
+            --transition: all 0.3s ease;
+            --border-radius: 15px;
+        }
+
+        .dark-mode {
+            --light: #121212;
+            --dark: #f8f9fa;
+            --glass: rgba(0, 0, 0, 0.3);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --border-glass: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            color: var(--dark);
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #0f0c29, #302b63);
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 8px solid #fff;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-logo {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            border-bottom: var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 5rem 5% 2rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        /* Search and Filter */
+        .notes-controls {
+            padding: 0 5% 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .controls-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.9rem 1.5rem 0.9rem 3rem;
+            border-radius: 50px;
+            border: 2px solid rgba(67, 97, 238, 0.2);
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            opacity: 0.7;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Notes Grid */
+        .notes-grid {
+            padding: 0 5% 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .note-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(31, 38, 135, 0.2);
+        }
+
+        .note-image {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .note-card:hover .note-image img {
+            transform: scale(1.1);
+        }
+
+        .faculty-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .note-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .note-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .note-description {
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .note-actions .btn {
+            flex: 1;
+            padding: 0.7rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* PDF Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            overflow: hidden;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            max-width: 80%;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            height: calc(100% - 70px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-info {
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .pdf-viewer {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .pdf-viewer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: var(--border-glass);
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--dark);
+            opacity: 0.7;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--border-glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 99;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--glass);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .controls-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+            }
+            
+            .filter-container {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .note-actions {
+                flex-direction: column;
+            }
+            
+            .note-card {
+                max-width: 100%;
+            }
+            
+            .modal-content {
+                width: 95%;
+                height: 90vh;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-logo">SkillNepal</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>SkillNepal</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html" class="active">Notes</a></li>
+                <li><a href="resume.html">Resume Builder</a></li>
+                <li><a href="tests.html">Mock Tests</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header animate-on-scroll">
+        <h1>Study Notes & Resources</h1>
+        <p>Access comprehensive study materials for various subjects. Download or preview PDF notes to enhance your learning experience.</p>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="notes-controls">
+        <div class="controls-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search notes by title, subject, or keyword...">
+            </div>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-faculty="all">All Notes</button>
+                <button class="filter-btn" data-faculty="computer">Computer Science</button>
+                <button class="filter-btn" data-faculty="engineering">Engineering</button>
+                <button class="filter-btn" data-faculty="business">Business</button>
+                <button class="filter-btn" data-faculty="ai">AI & Data Science</button>
+            </div>
+        </div>
+        
+        <div class="results-info">
+            <p id="resultsCount">Showing all 12 notes</p>
+        </div>
+    </section>
+
+    <!-- Notes Grid -->
+    <section class="notes-grid" id="notesContainer">
+        <!-- Notes will be dynamically generated -->
+    </section>
+
+    <!-- PDF Modal -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">PDF Preview</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="pdf-info">
+                <span id="pdfFaculty">Faculty: Computer Science</span>
+                <span id="pdfSize">Size: 2.3 MB</span>
+            </div>
+            <div class="modal-body">
+                <div class="pdf-viewer">
+                    <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Download started successfully!</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>SkillNepal</h3>
+                <p>Empowering Nepali students and professionals with education and career development resources.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="notes.html">Study Notes</a></li>
+                    <li><a href="resume.html">Resume Builder</a></li>
+                    <li><a href="tests.html">Mock Tests</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="jobs.html">Job Board</a></li>
+                    <li><a href="certificates.html">Certificates</a></li>
+                    <li><a href="ai-guide.html">AI Career Guide</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Putalisadak, Kathmandu</li>
+                    <li><i class="fas fa-phone"></i> +977 1-1234567</li>
+                    <li><i class="fas fa-envelope"></i> info@skillnepal.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 SkillNepal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script>
+        // Mock notes data
+        const notes = [
+            {
+                id: 1,
+                title: "Data Structures & Algorithms",
+                faculty: "Computer Science",
+                pdf: "data-structures.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 42,
+                size: "2.3 MB",
+                description: "Comprehensive guide to data structures and algorithms with implementation examples in Python and Java."
+            },
+            {
+                id: 2,
+                title: "Digital Electronics",
+                faculty: "Engineering",
+                pdf: "digital-electronics.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 35,
+                size: "1.8 MB",
+                description: "Fundamentals of digital circuits, logic gates, and microprocessor architecture."
+            },
+            {
+                id: 3,
+                title: "Business Statistics",
+                faculty: "Business",
+                pdf: "business-statistics.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 28,
+                size: "1.5 MB",
+                description: "Statistical methods for business decision making, data analysis, and forecasting."
+            },
+            {
+                id: 4,
+                title: "Machine Learning Fundamentals",
+                faculty: "AI & Data Science",
+                pdf: "machine-learning.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 56,
+                size: "3.1 MB",
+                description: "Introduction to machine learning algorithms, neural networks, and practical applications."
+            },
+            {
+                id: 5,
+                title: "Database Management Systems",
+                faculty: "Computer Science",
+                pdf: "database-systems.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 38,
+                size: "2.0 MB",
+                description: "Design and implementation of relational database systems and SQL programming."
+            },
+            {
+                id: 6,
+                title: "Circuit Theory",
+                faculty: "Engineering",
+                pdf: "circuit-theory.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1616004655123-818cbd56b785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 32,
+                size: "1.7 MB",
+                description: "Analysis of electrical circuits, network theorems, and AC/DC circuit fundamentals."
+            },
+            {
+                id: 7,
+                title: "Financial Accounting",
+                faculty: "Business",
+                pdf: "financial-accounting.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 45,
+                size: "2.5 MB",
+                description: "Principles of financial accounting, balance sheets, income statements, and financial analysis."
+            },
+            {
+                id: 8,
+                title: "Deep Learning Concepts",
+                faculty: "AI & Data Science",
+                pdf: "deep-learning.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1677442135722-5f8ea49cec8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 62,
+                size: "3.5 MB",
+                description: "Advanced neural networks, convolutional networks, and deep learning architectures."
+            },
+            {
+                id: 9,
+                title: "Operating Systems",
+                faculty: "Computer Science",
+                pdf: "operating-systems.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 48,
+                size: "2.6 MB",
+                description: "Fundamentals of operating systems, process management, memory allocation, and file systems."
+            },
+            {
+                id: 10,
+                title: "Thermodynamics",
+                faculty: "Engineering",
+                pdf: "thermodynamics.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 40,
+                size: "2.2 MB",
+                description: "Laws of thermodynamics, heat transfer, and applications in engineering systems."
+            },
+            {
+                id: 11,
+                title: "Marketing Management",
+                faculty: "Business",
+                pdf: "marketing-management.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 36,
+                size: "2.0 MB",
+                description: "Principles of marketing, consumer behavior, and strategic marketing planning."
+            },
+            {
+                id: 12,
+                title: "Natural Language Processing",
+                faculty: "AI & Data Science",
+                pdf: "nlp.pdf",
+                thumbnail: "https://images.unsplash.com/photo-1677442135133-33d364e7d1b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                pages: 52,
+                size: "2.9 MB",
+                description: "Techniques for text analysis, sentiment analysis, and language modeling using NLP."
+            }
+        ];
+
+        // DOM Elements
+        const notesContainer = document.getElementById('notesContainer');
+        const resultsCount = document.getElementById('resultsCount');
+        const searchInput = document.getElementById('searchInput');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const pdfModal = document.getElementById('pdfModal');
+        const closeModal = document.getElementById('closeModal');
+        const pdfFrame = document.getElementById('pdfFrame');
+        const modalTitle = document.getElementById('modalTitle');
+        const pdfFaculty = document.getElementById('pdfFaculty');
+        const pdfSize = document.getElementById('pdfSize');
+        const toast = document.getElementById('toast');
+
+        // Initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            renderNotes(notes);
+            updateResultsCount(notes.length);
+            
+            // Initialize event listeners
+            initEventListeners();
+            
+            // Scroll animations
+            initScrollAnimations();
+        });
+
+        // Render notes to the page
+        function renderNotes(notesArray) {
+            notesContainer.innerHTML = '';
+            
+            notesArray.forEach(note => {
+                const noteCard = document.createElement('div');
+                noteCard.className = 'note-card animate-on-scroll';
+                noteCard.innerHTML = `
+                    <div class="note-image">
+                        <img src="${note.thumbnail}" alt="${note.title}">
+                        <div class="faculty-tag">${note.faculty}</div>
+                    </div>
+                    <div class="note-content">
+                        <h3>${note.title}</h3>
+                        <div class="note-meta">
+                            <span><i class="fas fa-file"></i> ${note.pages} pages</span>
+                            <span><i class="fas fa-weight-hanging"></i> ${note.size}</span>
+                        </div>
+                        <p class="note-description">${note.description}</p>
+                        <div class="note-actions">
+                            <button class="btn btn-primary preview-btn" data-id="${note.id}">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            <button class="btn btn-secondary download-btn" data-id="${note.id}">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                `;
+                notesContainer.appendChild(noteCard);
+            });
+            
+            // Initialize scroll animations for new elements
+            initScrollAnimations();
+        }
+
+        // Filter notes by faculty
+        function filterNotes(faculty) {
+            if (faculty === 'all') {
+                renderNotes(notes);
+                updateResultsCount(notes.length);
+                return;
+            }
+            
+            const filtered = notes.filter(note => note.faculty.toLowerCase().includes(faculty.toLowerCase()));
+            renderNotes(filtered);
+            updateResultsCount(filtered.length);
+        }
+
+        // Search notes by title or description
+        function searchNotes(query) {
+            const filtered = notes.filter(note => 
+                note.title.toLowerCase().includes(query.toLowerCase()) ||
+                note.description.toLowerCase().includes(query.toLowerCase()) ||
+                note.faculty.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            renderNotes(filtered);
+            updateResultsCount(filtered.length);
+        }
+
+        // Update results count text
+        function updateResultsCount(count) {
+            resultsCount.textContent = `Showing ${count} notes`;
+        }
+
+        // Open PDF preview modal
+        function openPdfModal(noteId) {
+            const note = notes.find(n => n.id === noteId);
+            if (!note) return;
+            
+            // Update modal content
+            modalTitle.textContent = note.title;
+            pdfFaculty.textContent = `Faculty: ${note.faculty}`;
+            pdfSize.textContent = `Size: ${note.size}`;
+            
+            // For demonstration purposes, we'll use a placeholder PDF
+            // In a real implementation, this would be: pdfFrame.src = `/assets/pdfs/${note.pdf}`;
+            pdfFrame.src = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+            
+            // Show modal
+            pdfModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close PDF modal
+        function closePdfModal() {
+            pdfModal.classList.remove('active');
+            pdfFrame.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Download PDF
+        function downloadPdf(noteId) {
+            const note = notes.find(n => n.id === noteId);
+            if (!note) return;
+            
+            // For demonstration purposes, we'll show a toast
+            // In a real implementation, this would be:
+            // const link = document.createElement('a');
+            // link.href = `/assets/pdfs/${note.pdf}`;
+            // link.download = note.pdf;
+            // link.click();
+            
+            // Show toast notification
+            showToast(`Downloading: ${note.title}`);
+            
+            // Save to download history
+            saveToDownloadHistory(note);
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Save to download history in localStorage
+        function saveToDownloadHistory(note) {
+            let history = JSON.parse(localStorage.getItem('downloadHistory') || '[]');
+            
+            // Add to beginning
+            history.unshift({
+                id: note.id,
+                title: note.title,
+                faculty: note.faculty,
+                downloadedAt: new Date().toISOString()
+            });
+            
+            // Keep only last 10
+            if (history.length > 10) history.pop();
+            
+            localStorage.setItem('downloadHistory', JSON.stringify(history));
+        }
+
+        // Initialize event listeners
+        function initEventListeners() {
+            // Filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    // Filter notes
+                    filterNotes(button.dataset.faculty);
+                });
+            });
+            
+            // Search input
+            searchInput.addEventListener('input', () => {
+                searchNotes(searchInput.value);
+            });
+            
+            // Preview buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('preview-btn') || 
+                    e.target.closest('.preview-btn')) {
+                    const btn = e.target.closest('.preview-btn');
+                    openPdfModal(parseInt(btn.dataset.id));
+                }
+            });
+            
+            // Download buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('download-btn') || 
+                    e.target.closest('.download-btn')) {
+                    const btn = e.target.closest('.download-btn');
+                    downloadPdf(parseInt(btn.dataset.id));
+                }
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', closePdfModal);
+            
+            // Close modal when clicking outside
+            pdfModal.addEventListener('click', (e) => {
+                if (e.target === pdfModal) {
+                    closePdfModal();
+                }
+            });
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Page loader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1500);
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>

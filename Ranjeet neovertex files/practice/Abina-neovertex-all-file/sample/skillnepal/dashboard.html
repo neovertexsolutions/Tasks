@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SkillNepal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* CSS Variables for Theming */
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --sidebar-bg: #1e293b;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 10px;
+            --glass: rgba(255, 255, 255, 0.2);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .dark-mode {
+            --light: #121212;
+            --dark: #f8f9fa;
+            --sidebar-bg: #0f172a;
+            --header-bg: rgba(15, 23, 42, 0.9);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --glass: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            color: var(--dark);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        .dark-mode body {
+            background: linear-gradient(135deg, #0f0c29, #302b63);
+        }
+
+        /* Layout */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            grid-template-rows: 70px 1fr;
+            grid-template-areas:
+                "sidebar header"
+                "sidebar main";
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            grid-area: sidebar;
+            background: var(--sidebar-bg);
+            color: white;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--success));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .sidebar-menu {
+            margin-top: 1.5rem;
+        }
+
+        .menu-title {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            padding: 0.5rem 1.5rem;
+            color: #94a3b8;
+            margin-top: 1rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.8rem 1.5rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background: rgba(67, 97, 238, 0.2);
+            color: white;
+            border-left: 3px solid var(--accent);
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .menu-badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+        }
+
+        /* Header */
+        .header {
+            grid-area: header;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 90;
+        }
+
+        .dark-mode .header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-sidebar {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        .welcome-message h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .welcome-message p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .dark-mode .welcome-message p {
+            color: #94a3b8;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        .notification-btn {
+            position: relative;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode .notification-btn {
+            color: var(--light);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-info {
+            text-align: right;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .user-role {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            grid-area: main;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: var(--glass-border);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card-text {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .dark-mode .card-text {
+            color: #94a3b8;
+        }
+
+        .chart-container {
+            height: 250px;
+            position: relative;
+        }
+
+        /* Alert Card */
+        .alert-card {
+            background: rgba(248, 150, 30, 0.1);
+            border: 1px solid rgba(248, 150, 30, 0.3);
+        }
+
+        .alert-card .card-icon {
+            background: rgba(248, 150, 30, 0.1);
+            color: var(--warning);
+        }
+
+        .alert-card .card-title {
+            color: var(--warning);
+        }
+
+        .alert-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+            color: var(--warning);
+        }
+
+        /* Stats Card */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(67, 97, 238, 0.05);
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .dark-mode .stat-label {
+            color: #94a3b8;
+        }
+
+        /* Role Switch */
+        .role-switch {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .role-btn {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 0.5rem;
+            color: var(--dark);
+        }
+
+        .role-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Admin Dashboard */
+        .admin-section {
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .user-table th,
+        .user-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .user-table th,
+        .dark-mode .user-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .user-table th {
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .dark-mode .user-table th {
+            color: #94a3b8;
+        }
+
+        .user-table tr:hover {
+            background: rgba(67, 97, 238, 0.05);
+        }
+
+        .user-avatar-small {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: rgba(76, 201, 240, 0.1);
+            color: var(--success);
+        }
+
+        .status-pending {
+            background: rgba(248, 150, 30, 0.1);
+            color: var(--warning);
+        }
+
+        /* Feedback Summary */
+        .feedback-summary {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feedback-chart {
+            flex: 1;
+        }
+
+        .feedback-stats {
+            flex: 1;
+        }
+
+        .rating-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: var(--glass-border);
+        }
+
+        .rating-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--warning);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars i {
+            color: var(--warning);
+        }
+
+        /* AI Chat Widget */
+        .ai-chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            z-index: 200;
+            transition: var(--transition);
+        }
+
+        .ai-chat-widget:hover {
+            transform: scale(1.1);
+        }
+
+        .ai-chat-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: var(--glass-border);
+            z-index: 200;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .ai-chat-container.open {
+            display: flex;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-header i {
+            font-size: 1.2rem;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .message-ai {
+            background: rgba(67, 97, 238, 0.1);
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+
+        .message-user {
+            background: rgba(76, 201, 240, 0.1);
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+
+        .chat-input {
+            padding: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--dark);
+        }
+
+        .dark-mode .chat-input input {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .dashboard-container {
+                grid-template-columns: 70px 1fr;
+            }
+            
+            .sidebar {
+                overflow: visible;
+            }
+            
+            .logo-text, .menu-title, .menu-text {
+                display: none;
+            }
+            
+            .menu-item {
+                justify-content: center;
+                padding: 1rem;
+                border-left: none;
+            }
+            
+            .menu-item.active {
+                border-left: none;
+            }
+            
+            .menu-badge {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main";
+            }
+            
+            .sidebar {
+                position: fixed;
+                left: -260px;
+                top: 0;
+                bottom: 0;
+                width: 260px;
+                transition: left 0.3s ease;
+            }
+            
+            .sidebar.open {
+                left: 0;
+            }
+            
+            .toggle-sidebar {
+                display: block;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feedback-summary {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 0 1rem;
+            }
+            
+            .user-info {
+                display: none;
+            }
+            
+            .ai-chat-container {
+                width: 300px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">SkillNepal</div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <div class="menu-title">Main</div>
+                <a href="#" class="menu-item active">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                
+                <div class="menu-title">Learning</div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-book"></i>
+                    <span class="menu-text">Courses Progress</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Notes & Materials</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-file-contract"></i>
+                    <span class="menu-text">Resume Builder</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="menu-text">Jobs & Internships</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span class="menu-text">Mock Tests</span>
+                    <span class="menu-badge">3</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-certificate"></i>
+                    <span class="menu-text">Certificate Status</span>
+                </a>
+                
+                <div class="menu-title">Tools</div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-robot"></i>
+                    <span class="menu-text">AI Career Guide</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-comment-alt"></i>
+                    <span class="menu-text">Feedback</span>
+                </a>
+                
+                <div class="menu-title">Account</div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Settings</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="welcome-message">
+                    <h1>Welcome back, Krishna!</h1>
+                    <p>Here's what's happening with your learning today</p>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </button>
+                
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <span>KP</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name">Krishna Prasad</div>
+                        <div class="user-role">Premium User</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Role Switch -->
+            <div class="role-switch">
+                <button class="role-btn active" data-role="user">User Dashboard</button>
+                <button class="role-btn" data-role="admin">Admin Dashboard</button>
+            </div>
+            
+            <!-- User Dashboard -->
+            <section id="userDashboard" class="admin-section active">
+                <!-- Alerts -->
+                <div class="dashboard-grid">
+                    <div class="card alert-card">
+                        <div class="card-header">
+                            <div class="card-title">Action Required</div>
+                            <div class="card-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                        </div>
+                        <div class="alert-content">
+                            <div class="alert-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div>
+                                <h3>Complete Your Web Development Course</h3>
+                                <p>You have 2 modules left to complete your Web Development course.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card alert-card">
+                        <div class="card-header">
+                            <div class="card-title">Resume Builder</div>
+                            <div class="card-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                        </div>
+                        <div class="alert-content">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div>
+                                <h3>Resume Not Generated</h3>
+                                <p>Create your professional resume to apply for jobs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats -->
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Learning Progress</div>
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">68%</div>
+                        <div class="card-text">Overall course completion</div>
+                        <div class="chart-container">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Mock Tests</div>
+                            <div class="card-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="mockTestChart"></canvas>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Attempted</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">Passed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">4</div>
+                                <div class="stat-label">Pending</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Stats -->
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Notes & Materials</div>
+                            <div class="card-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">24</div>
+                        <div class="card-text">Downloaded resources</div>
+                        <div class="chart-container">
+                            <canvas id="notesChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Certificate Status</div>
+                            <div class="card-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">3/5</div>
+                        <div class="card-text">Certificates earned</div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">Web Dev</div>
+                                <div class="stat-label">Completed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">Python</div>
+                                <div class="stat-label">Completed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">Data Science</div>
+                                <div class="stat-label">In Progress</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Admin Dashboard -->
+            <section id="adminDashboard" class="admin-section">
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Total Users</div>
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">2,458</div>
+                        <div class="card-text">Active learners on platform</div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Courses</div>
+                            <div class="card-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">48</div>
+                        <div class="card-text">Available courses</div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Certificates</div>
+                            <div class="card-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">1,250</div>
+                        <div class="card-text">Issued this month</div>
+                    </div>
+                </div>
+                
+                <!-- User Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">User Management</div>
+                        <div class="card-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                    </div>
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Courses</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="user-avatar-small">SP</div>
+                                        <span>Sunil Poudel</span>
+                                    </div>
+                                </td>
+                                <td>sunil@example.com</td>
+                                <td>Premium</td>
+                                <td>5</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td><button class="role-btn" style="padding: 0.3rem 0.8rem;">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="user-avatar-small">AP</div>
+                                        <span>Amita Pandey</span>
+                                    </div>
+                                </td>
+                                <td>amita@example.com</td>
+                                <td>Admin</td>
+                                <td>12</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td><button class="role-btn" style="padding: 0.3rem 0.8rem;">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="user-avatar-small">RS</div>
+                                        <span>Raj Sharma</span>
+                                    </div>
+                                </td>
+                                <td>raj@example.com</td>
+                                <td>Free</td>
+                                <td>2</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td><button class="role-btn" style="padding: 0.3rem 0.8rem;">Edit</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div class="user-avatar-small">PP</div>
+                                        <span>Priya Pradhan</span>
+                                    </div>
+                                </td>
+                                <td>priya@example.com</td>
+                                <td>Premium</td>
+                                <td>7</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td><button class="role-btn" style="padding: 0.3rem 0.8rem;">Edit</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Feedback Summary -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Feedback Analytics</div>
+                        <div class="card-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    <div class="feedback-summary">
+                        <div class="feedback-chart">
+                            <div class="chart-container">
+                                <canvas id="feedbackChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="feedback-stats">
+                            <div class="rating-card">
+                                <div class="rating-value">4.7</div>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <div class="card-text">Average Rating from 1,240 reviews</div>
+                            </div>
+                            
+                            <div class="card-text">
+                                <h3>AI Summary:</h3>
+                                <p>Users are highly satisfied with the course content and platform usability. Most feedback suggests adding more advanced topics in the Web Development track.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- AI Chat Widget -->
+    <div class="ai-chat-widget" id="chatWidget">
+        <i class="fas fa-robot"></i>
+    </div>
+    
+    <div class="ai-chat-container" id="chatContainer">
+        <div class="chat-header">
+            <i class="fas fa-robot"></i>
+            <h3>AI Career Assistant</h3>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message message-ai">
+                Hello Krishna! I'm your AI Career Assistant. How can I help you today?
+            </div>
+            <div class="chat-message message-ai">
+                You can ask me about:
+                <ul>
+                    <li>Course recommendations</li>
+                    <li>Job opportunities</li>
+                    <li>Resume tips</li>
+                    <li>Career guidance</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Ask me anything...">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const toggleSidebar = document.querySelector('.toggle-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+        const roleBtns = document.querySelectorAll('.role-btn');
+        const userDashboard = document.getElementById('userDashboard');
+        const adminDashboard = document.getElementById('adminDashboard');
+        const chatWidget = document.getElementById('chatWidget');
+        const chatContainer = document.getElementById('chatContainer');
+        
+        // Initialize theme from localStorage
+        function initTheme() {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        }
+        
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+        
+        // Toggle sidebar on mobile
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+        
+        // Role switching
+        roleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                roleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                if (btn.dataset.role === 'user') {
+                    userDashboard.classList.add('active');
+                    adminDashboard.classList.remove('active');
+                } else {
+                    userDashboard.classList.remove('active');
+                    adminDashboard.classList.add('active');
+                }
+            });
+        });
+        
+        // AI Chat toggle
+        chatWidget.addEventListener('click', () => {
+            chatContainer.classList.toggle('open');
+        });
+        
+        // Initialize charts
+        function initCharts() {
+            // Progress Chart
+            const progressCtx = document.getElementById('progressChart').getContext('2d');
+            new Chart(progressCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Course Completion %',
+                        data: [10, 20, 35, 45, 50, 60, 68],
+                        borderColor: '#4361ee',
+                        backgroundColor: 'rgba(67, 97, 238, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Mock Test Chart
+            const mockTestCtx = document.getElementById('mockTestChart').getContext('2d');
+            new Chart(mockTestCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Passed', 'Failed', 'Pending'],
+                    datasets: [{
+                        data: [8, 4, 4],
+                        backgroundColor: [
+                            '#4cc9f0',
+                            '#f72585',
+                            '#f8961e'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Notes Chart
+            const notesCtx = document.getElementById('notesChart').getContext('2d');
+            new Chart(notesCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Web Dev', 'Python', 'Data Science', 'UI/UX', 'Mobile'],
+                    datasets: [{
+                        label: 'Downloads',
+                        data: [45, 30, 28, 22, 15],
+                        backgroundColor: '#4895ef',
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Feedback Chart
+            const feedbackCtx = document.getElementById('feedbackChart').getContext('2d');
+            new Chart(feedbackCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Content', 'Instructors', 'Platform', 'Support', 'Value'],
+                    datasets: [{
+                        label: 'Satisfaction Rating',
+                        data: [4.8, 4.7, 4.5, 4.6, 4.7],
+                        backgroundColor: 'rgba(76, 201, 240, 0.2)',
+                        borderColor: '#4cc9f0',
+                        pointBackgroundColor: '#4cc9f0',
+                        pointBorderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 5,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize the page
+        function initPage() {
+            initTheme();
+            initCharts();
+            
+            // Check if user is logged in
+            const session = JSON.parse(localStorage.getItem('session') || sessionStorage.getItem('session'));
+            if (!session || !session.isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+        
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
