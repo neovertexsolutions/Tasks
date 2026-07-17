@@ -1,0 +1,22 @@
+
+*{
+    text-align: center;
+}
+    #increase{
+    background-color: green;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+#decrease{
+    background-color:red;
+     border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+#reset{
+    background-color: yellow;
+     border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
