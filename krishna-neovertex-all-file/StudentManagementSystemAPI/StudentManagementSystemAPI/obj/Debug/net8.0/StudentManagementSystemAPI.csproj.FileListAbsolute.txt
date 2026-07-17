@@ -1,0 +1,8 @@
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.csproj.AssemblyReference.cache
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.AssemblyInfoInputs.cache
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.AssemblyInfo.cs
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.csproj.CoreCompileInputs.cache
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Krishna\source\repos\StudentManagementSystemAPI\StudentManagementSystemAPI\obj\Debug\net8.0\StudentManagementSystemAPI.MvcApplicationPartsAssemblyInfo.cache

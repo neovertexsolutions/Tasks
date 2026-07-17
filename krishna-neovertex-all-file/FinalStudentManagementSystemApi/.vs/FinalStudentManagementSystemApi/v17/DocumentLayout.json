@@ -1,0 +1,421 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\controller\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\controller\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\controller\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\controller\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\dtos\\auth\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\dtos\\auth\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\dtos\\student\\studentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\dtos\\student\\studentupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\dtos\\student\\studentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\dtos\\student\\studentresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\dtos\\student\\studentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\dtos\\student\\studentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\dtos\\auth\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\dtos\\auth\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\interfaces\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\interfaces\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\interfaces\\ijwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\interfaces\\ijwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|c:\\users\\krishna\\source\\repos\\finalstudentmanagementsystemapi\\finalstudentmanagementsystemapi\\middleware\\expectionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0441EDF-55F3-4D04-8408-CD3B712D3B1E}|FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi.csproj|solutionrelative:finalstudentmanagementsystemapi\\middleware\\expectionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Controller\\AdminController.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Controller\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Controller\\AdminController.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Controller\\AdminController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAkwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T16:18:32.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Controller\\StudentController.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Controller\\StudentController.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Controller\\StudentController.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Controller\\StudentController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAkwE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T16:18:14.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Controller\\AuthController.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Controller\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Controller\\AuthController.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Controller\\AuthController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAkwDYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T16:17:47.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Program.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Program.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T16:01:02.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\appsettings.json",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\appsettings.json",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-01T15:56:01.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IJwtService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IJwtService.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Interfaces\\IJwtService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IJwtService.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Interfaces\\IJwtService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:48:05.519Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ExpectionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Middleware\\ExpectionMiddleware.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Middleware\\ExpectionMiddleware.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Middleware\\ExpectionMiddleware.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Middleware\\ExpectionMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:31:48.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Services\\JwtService.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Services\\JwtService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Services\\JwtService.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Services\\JwtService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwDAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:29:55.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Services\\StudentService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Services\\StudentService.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Services\\StudentService.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAcwGsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:28:38.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Services\\UserService.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Services\\UserService.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAA0wEsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:28:29.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Repositories\\StudentRepository.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Repositories\\StudentRepository.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Repositories\\StudentRepository.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Repositories\\StudentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:27:45.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:27:35.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IStudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IStudentService.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Interfaces\\IStudentService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IStudentService.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Interfaces\\IStudentService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:26:08.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IStudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IStudentRepository.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Interfaces\\IStudentRepository.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IStudentRepository.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Interfaces\\IStudentRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAwwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:25:54.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAwwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:25:43.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAwwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:25:33.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:24:46.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "StudentResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Student\\StudentResponseDto.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\DTOs\\Student\\StudentResponseDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Student\\StudentResponseDto.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\DTOs\\Student\\StudentResponseDto.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:23:34.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StudentUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Student\\StudentUpdateDto.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\DTOs\\Student\\StudentUpdateDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Student\\StudentUpdateDto.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\DTOs\\Student\\StudentUpdateDto.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAIwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:23:20.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Auth\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\DTOs\\Auth\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Auth\\RegisterDto.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\DTOs\\Auth\\RegisterDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:22:02.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginDto.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginDto.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginDto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAwwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:22:14.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StudentCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Student\\StudentCreateDto.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\DTOs\\Student\\StudentCreateDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Student\\StudentCreateDto.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\DTOs\\Student\\StudentCreateDto.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAIwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:23:01.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginResponseDto.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginResponseDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginResponseDto.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\DTOs\\Auth\\LoginResponseDto.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAwwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:22:45.258Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Models\\User.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Models\\User.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Models\\User.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:23:52.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "FinalStudentManagementSystemApi\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\FinalStudentManagementSystemApi\\FinalStudentManagementSystemApi\\Models\\Student.cs",
+              "RelativeToolTip": "FinalStudentManagementSystemApi\\Models\\Student.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:24:00.195Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

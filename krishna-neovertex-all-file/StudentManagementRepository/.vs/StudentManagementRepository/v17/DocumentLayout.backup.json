@@ -1,0 +1,222 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\interfaces\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\interfaces\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\dtos\\createstudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\dtos\\createstudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\dtos\\updatestudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\dtos\\updatestudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|c:\\users\\krishna\\source\\repos\\studentmanagementrepository\\studentmanagementrepository\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62E0F70F-C440-4C27-9071-F53E8B464AED}|StudentManagementRepository\\StudentManagementRepository.csproj|solutionrelative:studentmanagementrepository\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateStudentDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\DTOs\\CreateStudentDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\DTOs\\CreateStudentDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\DTOs\\CreateStudentDto.cs",
+              "RelativeToolTip": "StudentManagementRepository\\DTOs\\CreateStudentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T07:47:47.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\appsettings.json",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\appsettings.json",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\appsettings.json",
+              "RelativeToolTip": "StudentManagementRepository\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-28T07:37:57.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Program.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Program.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Program.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T07:33:06.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:57:45.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:57:23.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UpdateStudentDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\DTOs\\UpdateStudentDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\DTOs\\UpdateStudentDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\DTOs\\UpdateStudentDto.cs",
+              "RelativeToolTip": "StudentManagementRepository\\DTOs\\UpdateStudentDto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:57:02.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StudentDto.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\DTOs\\StudentDto.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\DTOs\\StudentDto.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\DTOs\\StudentDto.cs",
+              "RelativeToolTip": "StudentManagementRepository\\DTOs\\StudentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:56:19.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IStudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Interfaces\\IStudentService.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Interfaces\\IStudentService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Interfaces\\IStudentService.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Interfaces\\IStudentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:55:54.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IStudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Interfaces\\IStudentRepository.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Interfaces\\IStudentRepository.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Interfaces\\IStudentRepository.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Interfaces\\IStudentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:55:33.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Models\\Student.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Models\\Student.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA1wAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:55:07.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Repositories\\StudentRepository.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Repositories\\StudentRepository.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Repositories\\StudentRepository.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Repositories\\StudentRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:54:52.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "StudentManagementRepository\\Services\\StudentService.cs",
+              "ToolTip": "C:\\Users\\Krishna\\source\\repos\\StudentManagementRepository\\StudentManagementRepository\\Services\\StudentService.cs",
+              "RelativeToolTip": "StudentManagementRepository\\Services\\StudentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T06:54:24.808Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

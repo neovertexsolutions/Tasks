@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HNEqvEqIxVU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Krishna\\source\\repos\\studentmanagementsystem\\studentmanagementsystem\\studentmanagementsystem.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Krishna\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.16\\microsoft.aspnetcore.openapi.9.0.16.nupkg.sha512",
+    "C:\\Users\\Krishna\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

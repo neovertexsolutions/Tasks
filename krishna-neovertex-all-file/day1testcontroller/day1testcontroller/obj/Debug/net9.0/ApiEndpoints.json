@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "day1testcontroller.Controllers.studentmanageapi",
+    "Method": "GetStudent",
+    "RelativePath": "api/studentmanageapi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
